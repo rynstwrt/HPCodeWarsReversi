@@ -1,10 +1,6 @@
 inp = """f4
 f5
-f6
-g5
-h6
-f7
-e6
+g6
 END"""
 
 xAxis = list(map(chr, range(97, 105)))
@@ -63,6 +59,30 @@ def handleMove(newPos, isWhite):
 	if down in oppositeArr and getDown(down) in sameArr:
 		oppositeArr.remove(down)
 		sameArr.append(down)
+
+	# up-right
+	ur = getUp(right)
+	if ur in oppositeArr and getUp(getRight(ur)) in sameArr:
+		oppositeArr.remove(ur)
+		sameArr.remove(ur)
+
+	# up-left
+	ul = getUp(left)
+	if ul in oppositeArr and getUp(getLeft(ul)) in sameArr:
+		oppositeArr.remove(ul)
+		sameArr.append(ul)
+
+	# down-right
+	dr = getDown(right)
+	if dr in oppositeArr and getDown(getRight(dr)) in sameArr:
+		oppositeArr.remove(dr)
+		sameArr.append(dr)
+
+	# down-left
+	dl = getDown(left)
+	if dl in oppositeArr and getDown(getLeft(dl)) in sameArr:
+		oppositeArr.remove(dl)
+		sameArr.append(dl)
 	
 
 
